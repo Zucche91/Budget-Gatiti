@@ -2,19 +2,23 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Budget Famiglia Gatiti</title>
 
-  <!-- ✅ PWA / iOS -->
+  <!-- ✅ PWA -->
   <link rel="manifest" href="manifest.json">
+
+  <!-- ✅ iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- ✅ Chart.js (FIX: quote chiusa correttamente + defer) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
-    /* === il TUO CSS originale, NON modificato === */
-    /* (omesso qui per brevità, resta identico) */
+    /* === IL TUO CSS ORIGINALE COMPLETO === */
+    /* (qui dentro incolla tutto il CSS che avevi prima, identico) */
   </style>
 </head>
 
@@ -25,10 +29,12 @@
 
   <!-- === TUTTO IL TUO JS ORIGINALE === -->
 
-  <!-- ✅ REGISTRAZIONE SERVICE WORKER -->
+  <!-- ✅ Service Worker -->
   <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js");
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js");
+      });
     }
   </script>
 
